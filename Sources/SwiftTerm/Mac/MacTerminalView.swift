@@ -88,7 +88,7 @@ open class TerminalView: NSView, NSTextInputClient, NSUserInterfaceValidations, 
     }
 
     var accessibility: AccessibilityService = AccessibilityService()
-    var search: SearchService!
+    public var search: SearchService!
     private var findBar: TerminalFindBarView?
     private var findBarTerm: String = ""
     private var findBarOptions: SearchOptions = SearchOptions()

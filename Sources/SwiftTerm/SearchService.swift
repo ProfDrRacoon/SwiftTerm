@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SearchService {
+public final class SearchService {
     private enum Constants {
         static let defaultHighlightLimit = 1000
     }
@@ -85,7 +85,7 @@ final class SearchService {
         return result
     }
 
-    func findAll (term: String, options: SearchOptions = SearchOptions(), limit: Int = Constants.defaultHighlightLimit) -> [SearchResult] {
+    public func findAll (term: String, options: SearchOptions = SearchOptions(), limit: Int = 1000) -> [SearchResult] {
         guard state.isValidSearchTerm(term) else {
             return []
         }
@@ -113,7 +113,7 @@ final class SearchService {
         return results
     }
 
-    func selectionRange (for result: SearchResult) -> (start: Position, end: Position) {
+    public func selectionRange (for result: SearchResult) -> (start: Position, end: Position) {
         let start = Position(col: result.col, row: result.row)
         let end = advancePosition(from: start, by: max(result.size, 0))
         return (start, end)
