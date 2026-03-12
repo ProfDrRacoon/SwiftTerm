@@ -1793,7 +1793,7 @@ open class TerminalView: NSView, NSTextInputClient, NSUserInterfaceValidations, 
         }
     }
     
-    public override func mouseDown(with event: NSEvent) {
+    open override func mouseDown(with event: NSEvent) {
         if allowMouseReporting && terminal.mouseMode.sendButtonPress() {
             sharedMouseEvent(with: event)
             return
